@@ -78,7 +78,7 @@ int myabs(int n)   //절댓값 반환 함수
 }
 int MakingObs(int func, int n)   //장애물 생성 함수
 {
-    int i, j, ObsN, X, Y;   //ObsN: 장애물 개수, (X, Y): 장애물 위치
+    int i, j, ObsN=0, X, Y;   //ObsN: 장애물 개수, (X, Y): 장애물 위치
     
     switch(func) {   //0: 랜덤한 위치에 랜덤한 개수의 장애물을 설치. 1: 랜덤한 위치에 n개의 장애물을 설치. 2: 맵을 사용자에게 입력받음.
         case 0:
@@ -316,7 +316,7 @@ void StartAstarAlgorithm()   //A* 알고리즘 시작!
 //--------------main 함수-------------
 int main()
 {
-    srand(time(NULL));   //난수 설정
+    srand((int)time(NULL));   //난수 설정
     StartAstarAlgorithm();   //A*알고리즘
     
     return 0;
