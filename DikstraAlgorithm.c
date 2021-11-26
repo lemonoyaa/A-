@@ -232,13 +232,12 @@ void StartDikstraAlgorithm()
         2: 사용자가 직접 입력
     */
     
-    start = clock();   //시작!
-    
     scanf("%d %d %d %d", &StartX, &StartY, &TargetX, &TargetY);   //시작위치와 목표 위치
     scanf("%d", &MakingObsFunc);
     if(MakingObsFunc==1)
         scanf("%d", &ObsNum);
-    
+   
+    start = clock();   //시작!
     ObsNum = MakingObs(MakingObsFunc, ObsNum);   //장애물 생성 및 개수 저장
     MakingQueue();   //열린 공간 닫힌 공간 생성
     Enque(&Queue[0], StartX);   //열린 공간에 시작 지점을 추가
