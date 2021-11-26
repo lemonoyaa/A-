@@ -244,7 +244,7 @@ void StartDikstraAlgorithm()
     Enque(&Queue[0], StartX);   //열린 공간에 시작 지점을 추가
     Enque(&Queue[1], StartY);
     
-    IsBlock = DikstraAlgorithm(StartX, StartY);   //다익스트라 알고리즘 시작!
+    IsBlock = DikstraAlgorithm();   //다익스트라 알고리즘 시작!
     
     if(IsBlock==-1)   //막혔으면 막혔다고 출력
         puts("Is Blocked");
