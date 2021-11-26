@@ -35,7 +35,7 @@ int PathX, PathY;   //길 위치
 int Initialize(IntQueue *q, int max)   //큐 생성 함수
 {
     q->num=q->front=q->rear=0;
-    if((q->que = calloc(max, sizeof(int))) == NULL) {
+    if((q->que = (int *)calloc(max, sizeof(int))) == NULL) {
         q->max=0;
         return -1;
     }
@@ -249,7 +249,7 @@ int AstarAlgorithm(int x, int y)   //A* 알고리즘
         flag=0;   //flag 초기화
         SearchArea(x, y);   //열린 공간에 가능한 위치 추가
         
-        SearchId = PrioritySearchId(x, y);   //우선으로 탐색할 큐 id 저장
+        SearchId = PrioritySearchId();   //우선으로 탐색할 큐 id 저장
         if(SearchId==-1)   //길이 없는가?
             return -1;
             
@@ -267,7 +267,7 @@ int AstarAlgorithm(int x, int y)   //A* 알고리즘
 }
 void StartAstarAlgorithm()   //A* 알고리즘 시작!
 {
-    int i, IsBlock, ObsNum, PX, PY, MakingObsFunc;   //막혀있으면 -1, 길이 있으면 1이 저장됨, 장애물 개수, 임시 길 위치 저장
+    int i, IsBlock, ObsNum=0, PX, PY, MakingObsFunc;   //막혀있으면 -1, 길이 있으면 1이 저장됨, 장애물 개수, 임시 길 위치 저장
     /* 
         장애물 설치 유형
         0: 랜덤한 개수로 랜덤하게 장애물 설치
